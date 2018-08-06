@@ -3,7 +3,6 @@ package main
 import (
 	"database/sql"
 	"errors"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -83,6 +82,8 @@ var (
 )
 
 func authenticate(w http.ResponseWriter, r *http.Request, email, passwd string) {
+	log.Println("emailは", email)
+	log.Println("passwdは", passwd)
 	query := `SELECT u.id AS id, u.account_name AS account_name, u.nick_name AS nick_name, u.email AS email
 FROM users u
 JOIN salts s ON u.id = s.user_id
@@ -282,7 +283,6 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 
 func GetLogin(w http.ResponseWriter, r *http.Request) {
 	log.Println("get ログイン！！")
-	fmt.Println("get ログイン！！")
 
 	render(w, r, http.StatusOK, "login.html", struct{ Message string }{"高負荷に耐えられるSNSコミュニティサイトへようこそ!"})
 }

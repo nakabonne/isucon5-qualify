@@ -3,10 +3,7 @@ package main
 import (
 	"database/sql"
 	"errors"
-	"github.com/go-sql-driver/mysql"
-	"github.com/gorilla/context"
-	"github.com/gorilla/mux"
-	"github.com/gorilla/sessions"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -16,6 +13,11 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/go-sql-driver/mysql"
+	"github.com/gorilla/context"
+	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
 )
 
 var (
@@ -276,6 +278,9 @@ func render(w http.ResponseWriter, r *http.Request, status int, file string, dat
 }
 
 func GetLogin(w http.ResponseWriter, r *http.Request) {
+	log.Println("get ログイン！！")
+	fmt.Println("get ログイン！！")
+
 	render(w, r, http.StatusOK, "login.html", struct{ Message string }{"高負荷に耐えられるSNSコミュニティサイトへようこそ!"})
 }
 

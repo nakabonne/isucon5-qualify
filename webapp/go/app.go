@@ -92,10 +92,13 @@ WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
 	log.Println("結果は", row)
 	user := User{}
 	err := row.Scan(&user.ID, &user.AccountName, &user.NickName, &user.Email)
+	log.Println("スキャン後のエラー", err)
 	if err != nil {
 		if err == sql.ErrNoRows {
+			log.Println("ノーローズ", err)
 			checkErr(ErrAuthentication)
 		}
+		log.Println("イエスーローズ", err)
 		checkErr(err)
 	}
 	log.Println("userは", row)

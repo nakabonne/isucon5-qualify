@@ -85,7 +85,9 @@ func authenticate(w http.ResponseWriter, r *http.Request, email, passwd string) 
 FROM users u
 JOIN salts s ON u.id = s.user_id
 WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
+	log.Println("クエリは", query)
 	row := db.QueryRow(query, email, passwd)
+	log.Println("結果は", row)
 	user := User{}
 	err := row.Scan(&user.ID, &user.AccountName, &user.NickName, &user.Email)
 	if err != nil {
@@ -94,7 +96,9 @@ WHERE u.email = ? AND u.passhash = SHA2(CONCAT(?, s.salt), 512)`
 		}
 		checkErr(err)
 	}
+	log.Println("userは", row)
 	session := getSession(w, r)
+	log.Println("sessionは", session)
 	session.Values["user_id"] = user.ID
 	session.Save(r, w)
 }

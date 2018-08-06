@@ -4,7 +4,7 @@ MAKEFLAGS = --no-builtin-rules --no-builtin-variables --always-make
 SHELL  = /usr/bin/env bash
 
 bench:
-	sudo sh bench/files/bench.sh webapp/scripts/testsets/testsets.json
+	sudo sh bench/files/bench.sh
 
 restart:
 	sh scripts/restart.sh

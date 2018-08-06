@@ -13,8 +13,29 @@ Ansible playbook for [ISUCON5-qualifier](http://isucon.net/archives/45166636.htm
 ### ベンチ実行
 
 ```
-$ sh bench/files/bench.sh
+$ make bench
 ```
+
+### リスタート
+
+```
+$ make restart
+```
+
+### alpによるログ集計
+
+```
+$ make alp
+```
+
+### alpのログローテート
+
+```
+make rotate
+```
+
+
+### 準備
 
 Remote:
 ```
@@ -35,10 +56,6 @@ ansible-playbook -i local image/ansible/playbook.yml
 # for bench
 ansible-playbook -i local bench/ansible/playbook.yml
 ```
-
-## 本来の設定と異なるところ
-
-- ベンチマークはCLIから手動で実行する必要があります
 
 ## References
 

@@ -10,4 +10,4 @@ restart:
 	sh scripts/restart.sh
 
 alp:
-	sudo alp -r --sum -f $(file) --aggregates '/history/\d+,/channel/\d+,/profile/\w+,/icons/\S+'
+	sudo alp -r --sum -f $(file)

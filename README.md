@@ -31,9 +31,14 @@ $ make alp
 ### alpのログローテート
 
 ```
-make rotate
+$ make rotate
 ```
 
+### データ生成
+
+```
+$ /home/isucon/ansible-isucon/isucon5-qualifier# /home/isucon/.local/ruby/bin/ruby webapp/script/gen.rb
+```
 
 ### 準備
 

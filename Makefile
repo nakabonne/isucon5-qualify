@@ -5,3 +5,6 @@ SHELL  = /usr/bin/env bash
 
 bench:
 	sh bench/files/bench.sh
+
+restart:
+	sh scripts/restart.sh

@@ -11,3 +11,6 @@ restart:
 
 alp:
 	sudo alp -r --sum -f $(file)
+
+rotate:
+	sh scripts/rotate_alplog.sh

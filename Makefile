@@ -14,3 +14,7 @@ alp:
 
 rotate:
 	sh scripts/rotate_alplog.sh
+
+build:
+	cd webapp/go/
+	GOPATH=`pwd` go build -o app
